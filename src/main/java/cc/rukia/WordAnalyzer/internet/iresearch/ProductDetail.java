@@ -1,14 +1,17 @@
 package cc.rukia.WordAnalyzer.internet.iresearch;
 
+import cc.rukia.WordAnalyzer.internet.AbstractArticle;
 import com.geccocrawler.gecco.annotation.*;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
 
+import java.util.List;
+
 /**
  * Created by jackie on 18/1/15.
  */
-@Gecco(matchUrl="http://news.iresearch.cn/content/{date}/{code}.shtml", pipelines={"consolePipeline", "productDetailPipeline"})
-public class ProductDetail implements HtmlBean {
+@Gecco(matchUrl="http://news.iresearch.cn/content/{date}/{code}.shtml", pipelines={"consolePipeline", "to_DB_Pipeline"})
+public class ProductDetail extends AbstractArticle implements HtmlBean {
 
     private static final long serialVersionUID = -377053120283382723L;
 
@@ -18,8 +21,8 @@ public class ProductDetail implements HtmlBean {
     @Request
     private HttpRequest request;
 
-    @HtmlField(cssPath="body > div.g-content > div.g-bd.f-mt-auto > div > div.g-mn > div > div.g-article > div.m-article")
-    private String content;
+    @HtmlField(cssPath="body > div.g-content > div.g-bd.f-mt-auto > div > div.g-mn > div > div.g-article > div.m-article p")
+    private List<String> content;
 
     @RequestParameter
     private String code;
@@ -34,11 +37,11 @@ public class ProductDetail implements HtmlBean {
     @HtmlField(cssPath="body > div.g-content > div.g-main.f-mt-auto > div > div > div.title > h1")
     private String title;
 
-    public String getContent() {
+    public List<String> getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(List<String> content) {
         this.content = content;
     }
 

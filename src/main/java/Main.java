@@ -51,7 +51,7 @@ public static void main(String[] args) {
     iresearchUrl.setCharset("GBK");
     GeccoEngine.create()
             //Gecco搜索的包路径
-            .classpath("cc.rukia.WordAnalyzer.internet.iresearch")
+            .classpath("cc.rukia.WordAnalyzer.internet")
             //开始抓取的页面地址
             .start(iresearchUrl)
             //开启几个爬虫线程
@@ -60,14 +60,13 @@ public static void main(String[] args) {
             .interval(500)
             .run();
     GeccoEngine.create()
-            .classpath("cc.rukia.WordAnalyzer.internet.people")
+            .classpath("cc.rukia.WordAnalyzer.internet")
             .start(peopleUrl)
-            .start(iresearchUrl)
-            .thread(5)
+            .thread(1)
             .interval(500)
             .loop(false)
             .mobile(false)
-            .run();
+            .start();
 
 }
 }

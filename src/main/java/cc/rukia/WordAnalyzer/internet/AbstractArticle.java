@@ -1,8 +1,10 @@
 package cc.rukia.WordAnalyzer.internet;
 
+import com.geccocrawler.gecco.spider.HtmlBean;
+
 import java.util.List;
 
-public abstract class AbstractArticle {
+public abstract class AbstractArticle implements HtmlBean {
     protected String title;
     protected List<String> content;
 

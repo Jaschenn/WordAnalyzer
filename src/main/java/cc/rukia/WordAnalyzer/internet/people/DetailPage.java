@@ -10,7 +10,7 @@ import com.geccocrawler.gecco.annotation.Text;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
 //http://it.people.com.cn/n1/2018/1227/c1009-30490112.html
-@Gecco(matchUrl="http://it.people.com.cn/n1/{year}/{month}/{id}.html", pipelines="DetatilPipeline")
+@Gecco(matchUrl="http://it.people.com.cn/n1/{year}/{month}/{id}.html", pipelines="to_DB_Pipeline")
 public class DetailPage extends AbstractArticle implements HtmlBean{
 
 	/**

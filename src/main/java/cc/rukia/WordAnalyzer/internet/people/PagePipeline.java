@@ -10,7 +10,7 @@ import com.geccocrawler.gecco.scheduler.SchedulerContext;
 
 
 @SuppressWarnings("deprecation")
-@PipelineName(value="PagePipeline")
+@PipelineName("PagePipeline")
 public class PagePipeline implements Pipeline<PeopleIndex>{
 
 	public void process(PeopleIndex peopleIndex) {
