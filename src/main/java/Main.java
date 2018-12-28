@@ -45,15 +45,29 @@ public class Main {
 //        }
 //    }
 public static void main(String[] args) {
-    HttpGetRequest startUrl = new HttpGetRequest("http://it.people.com.cn/index2.html");
-    startUrl.setCharset("GBK");
+    HttpGetRequest peopleUrl = new HttpGetRequest("http://it.people.com.cn/index2.html");
+    HttpGetRequest iresearchUrl = new HttpGetRequest("http://news.iresearch.cn/");
+    peopleUrl.setCharset("GBK");
+    iresearchUrl.setCharset("GBK");
     GeccoEngine.create()
-            .classpath("cc.rukia.WordAnalyzer.People")
-            .start(startUrl)
-            .thread(1)
-            .interval(2000)
+            //Gecco搜索的包路径
+            .classpath("cc.rukia.WordAnalyzer.internet.iresearch")
+            //开始抓取的页面地址
+            .start(iresearchUrl)
+            //开启几个爬虫线程
+            .thread(5)
+            //单个爬虫每次抓取完一个请求后的间隔时间
+            .interval(500)
+            .run();
+    GeccoEngine.create()
+            .classpath("cc.rukia.WordAnalyzer.internet.people")
+            .start(peopleUrl)
+            .start(iresearchUrl)
+            .thread(5)
+            .interval(500)
             .loop(false)
             .mobile(false)
-            .start();
+            .run();
+
 }
 }
