@@ -1,11 +1,6 @@
 import com.geccocrawler.gecco.GeccoEngine;
 import com.geccocrawler.gecco.request.HttpGetRequest;
-import org.hibernate.HibernateException;
-import org.hibernate.SessionFactory;
-import org.hibernate.Session;
-import org.hibernate.Query;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.metadata.ClassMetadata;
+import com.geccocrawler.gecco.request.HttpRequest;
 
 import java.util.Map;
 
@@ -47,6 +42,8 @@ public class Main {
 public static void main(String[] args) {
     HttpGetRequest peopleUrl = new HttpGetRequest("http://it.people.com.cn/index2.html");
     HttpGetRequest iresearchUrl = new HttpGetRequest("http://news.iresearch.cn/");
+    HttpGetRequest elecfansUrl = new HttpGetRequest("http://www.elecfans.com/rengongzhineng/1064_1.html");
+    HttpGetRequest cbdioUrl = new HttpGetRequest("http://www.cbdio.com/index.html");
     peopleUrl.setCharset("GBK");
     iresearchUrl.setCharset("GBK");
     GeccoEngine.create()
@@ -67,6 +64,25 @@ public static void main(String[] args) {
             .loop(false)
             .mobile(false)
             .start();
+    
+    
+    GeccoEngine.create()
+    .classpath("cc.rukia.WordAnalyzer.internet")
+    .start(elecfansUrl)
+    .thread(1)
+    .interval(500)
+    .loop(false)
+    .mobile(false)
+    .start();
+    
+    GeccoEngine.create()
+    .classpath("cc.rukia.WordAnalyzer.internet")
+    .start(cbdioUrl)
+    .thread(1)
+    .interval(500)
+    .loop(false)
+    .mobile(false)
+    .start();
 
 }
 }
