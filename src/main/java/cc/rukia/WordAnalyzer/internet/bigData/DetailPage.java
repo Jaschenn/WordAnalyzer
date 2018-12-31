@@ -1,38 +1,36 @@
-package cc.rukia.WordAnalyzer.internet.people;
+package cc.rukia.WordAnalyzer.internet.bigData;
 
 import java.util.List;
 
-import cc.rukia.WordAnalyzer.internet.AbstractArticle;
 import com.geccocrawler.gecco.annotation.Gecco;
 import com.geccocrawler.gecco.annotation.HtmlField;
 import com.geccocrawler.gecco.annotation.Request;
 import com.geccocrawler.gecco.annotation.Text;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
-//http://it.people.com.cn/n1/2018/1227/c1009-30490112.html
-@Gecco(matchUrl="http://it.people.com.cn/n1/{year}/{month}/{id}.html", pipelines="to_DB_Pipeline")
+
+import cc.rukia.WordAnalyzer.internet.people.AbstractArticle;
+
+//http://www.cbdio.com/BigData/2018-12/24/content_5964043.htm
+@Gecco(matchUrl="http://www.cbdio.com/BigData/{year}/{day}/{index}.htm", pipelines="to_DB_Pipeline")
 public class DetailPage extends AbstractArticle implements HtmlBean{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Request
 	private HttpRequest request;
 	
-	
-	//div.w1000_320:nth-child(8) > h1:nth-child(2)div.w1000_320:nth-child(8)
-	@HtmlField(cssPath="div.w1000_320 h1")
+	//cb-article
+	@HtmlField(cssPath="div.cb-article h1")
 	private String title;
 	
-	
-
 	@Text
-	@HtmlField(cssPath="div.box_con p")
+	@HtmlField(cssPath="div.cb-article p")
 	private List<String> content;
-	
-	
+
 	public HttpRequest getRequest() {
 		return request;
 	}
@@ -56,6 +54,5 @@ public class DetailPage extends AbstractArticle implements HtmlBean{
 	public void setContent(List<String> content) {
 		this.content = content;
 	}
-
 	
 }
