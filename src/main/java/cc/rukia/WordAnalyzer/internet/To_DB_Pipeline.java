@@ -3,7 +3,6 @@ package cc.rukia.WordAnalyzer.internet;
 import cc.rukia.WordAnalyzer.util.RegrexUtil;
 import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
-import org.ansj.splitWord.analysis.NlpAnalysis;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -35,8 +34,7 @@ public class To_DB_Pipeline implements Pipeline<AbstractArticle> {
         try {
             fileWriter.write(abstractArticle.getTitle());
             fileWriter.write("\r\n");
-            String content = (abstractArticle.getContent()).toString().replaceAll("\\[","").replaceAll("\\]","");
-            fileWriter.write(content);
+            fileWriter.write((abstractArticle.getContent()).toString());
             fileWriter.write("\r\n");
             fileWriter.flush();
         } catch (IOException e) {
