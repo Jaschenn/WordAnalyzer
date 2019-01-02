@@ -9,7 +9,7 @@ import com.geccocrawler.gecco.annotation.Text;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
 
-import cc.rukia.WordAnalyzer.internet.people.AbstractArticle;
+import cc.rukia.WordAnalyzer.internet.AbstractArticle;
 
 //http://www.elecfans.com/emb/dsp/20181226840256.html
 @Gecco(matchUrl="http://www.elecfans.com/rengongzhineng/8{index}.html", pipelines="to_DB_Pipeline")

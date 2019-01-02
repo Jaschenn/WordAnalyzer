@@ -1,5 +1,6 @@
 package cc.rukia.WordAnalyzer.ansj;
 
+import com.geccocrawler.gecco.annotation.Text;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.scheduler.SchedulerContext;
 import org.ansj.app.keyword.KeyWordComputer;
@@ -14,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class AnsjProcess {
+
     public void process(){
 //        String top1 = ((List<Keyword>) keywords).get(0).getName();
 //        HttpRequest httpRequest = productDetail.getRequest();

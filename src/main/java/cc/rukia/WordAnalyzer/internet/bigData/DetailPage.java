@@ -9,7 +9,7 @@ import com.geccocrawler.gecco.annotation.Text;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
 
-import cc.rukia.WordAnalyzer.internet.people.AbstractArticle;
+import cc.rukia.WordAnalyzer.internet.AbstractArticle;
 
 //http://www.cbdio.com/BigData/2018-12/24/content_5964043.htm
 @Gecco(matchUrl="http://www.cbdio.com/BigData/{year}/{day}/{index}.htm", pipelines="to_DB_Pipeline")

@@ -34,26 +34,9 @@ public class AIIndex implements HtmlBean{
 	@HtmlField(cssPath="div.article-list div h3 a")
 	private List<String> contentName;
 
-	//a.page-num:nth-child(8)a.page-num:nth-child(8)
-	@HtmlField(cssPath="div.pagn1 a:nth-child(9)")
-	private String number;
-	
-	
 	@Href(value="href")
-	@HtmlField(cssPath="div.pagn1 a:nth-child(9)")
+	@HtmlField(cssPath="div.pagn1 a:last-child")
 	private String nextUrl;
-
-	
-
-	public String getNumber() {
-		return number;
-	}
-
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
 
 	public HttpRequest getRequest() {
 		return request;

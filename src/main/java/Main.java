@@ -1,3 +1,4 @@
+import cc.rukia.WordAnalyzer.ansj.AnsjProcess;
 import com.geccocrawler.gecco.GeccoEngine;
 import com.geccocrawler.gecco.request.HttpGetRequest;
 import com.geccocrawler.gecco.request.HttpRequest;
@@ -42,47 +43,49 @@ public class Main {
 public static void main(String[] args) {
     HttpGetRequest peopleUrl = new HttpGetRequest("http://it.people.com.cn/index2.html");
     HttpGetRequest iresearchUrl = new HttpGetRequest("http://news.iresearch.cn/");
-    HttpGetRequest elecfansUrl = new HttpGetRequest("http://www.elecfans.com/rengongzhineng/1064_1.html");
+    HttpGetRequest elecfansUrl = new HttpGetRequest("http://www.elecfans.com/rengongzhineng/1064_2.html");
     HttpGetRequest cbdioUrl = new HttpGetRequest("http://www.cbdio.com/index.html");
     peopleUrl.setCharset("GBK");
     iresearchUrl.setCharset("GBK");
-    GeccoEngine.create()
-            //Gecco搜索的包路径
-            .classpath("cc.rukia.WordAnalyzer.internet")
-            //开始抓取的页面地址
-            .start(iresearchUrl)
-            //开启几个爬虫线程
-            .thread(5)
-            //单个爬虫每次抓取完一个请求后的间隔时间
-            .interval(500)
-            .run();
-    GeccoEngine.create()
-            .classpath("cc.rukia.WordAnalyzer.internet")
-            .start(peopleUrl)
-            .thread(1)
-            .interval(500)
-            .loop(false)
-            .mobile(false)
-            .start();
-    
-    
-    GeccoEngine.create()
-    .classpath("cc.rukia.WordAnalyzer.internet")
-    .start(elecfansUrl)
-    .thread(1)
-    .interval(500)
-    .loop(false)
-    .mobile(false)
-    .start();
-    
-    GeccoEngine.create()
-    .classpath("cc.rukia.WordAnalyzer.internet")
-    .start(cbdioUrl)
-    .thread(1)
-    .interval(500)
-    .loop(false)
-    .mobile(false)
-    .start();
+//    GeccoEngine.create()
+//            //Gecco搜索的包路径
+//            .classpath("cc.rukia.WordAnalyzer.internet")
+//            //开始抓取的页面地址
+//            .start(iresearchUrl)
+//            //开启几个爬虫线程
+//            .thread(5)
+//            //单个爬虫每次抓取完一个请求后的间隔时间
+//            .interval(500)
+//            .run();
+//    GeccoEngine.create()
+//            .classpath("cc.rukia.WordAnalyzer.internet")
+//            .start(peopleUrl)
+//            .thread(1)
+//            .interval(500)
+//            .loop(false)
+//            .mobile(false)
+//            .run();
+
+//    GeccoEngine.create()
+//            .classpath("cc.rukia.WordAnalyzer.internet")
+//            .start(elecfansUrl)
+//            .thread(1)
+//            .interval(500)
+//            .loop(false)
+//            .mobile(false)
+//            .debug(true)
+//            .run();
+//
+//    GeccoEngine.create()
+//            .classpath("cc.rukia.WordAnalyzer.internet")
+//            .start(cbdioUrl)
+//            .thread(1)
+//            .interval(500)
+//            .loop(false)
+//            .mobile(false)
+//            .start();
+    AnsjProcess a = new AnsjProcess();
+    a.process();
 
 }
 }
