@@ -2,7 +2,10 @@ import cc.rukia.WordAnalyzer.ansj.AnsjProcess;
 import com.geccocrawler.gecco.GeccoEngine;
 import com.geccocrawler.gecco.request.HttpGetRequest;
 import com.geccocrawler.gecco.request.HttpRequest;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -40,7 +43,7 @@ public class Main {
 //            session.close();
 //        }
 //    }
-public static void main(String[] args) {
+public static void main(String[] args) throws Exception{
     HttpGetRequest peopleUrl = new HttpGetRequest("http://it.people.com.cn/index2.html");
     HttpGetRequest iresearchUrl = new HttpGetRequest("http://news.iresearch.cn/");
     HttpGetRequest elecfansUrl = new HttpGetRequest("http://www.elecfans.com/rengongzhineng/1064_2.html");
@@ -84,8 +87,9 @@ public static void main(String[] args) {
 //            .loop(false)
 //            .mobile(false)
 //            .start();
-    AnsjProcess a = new AnsjProcess();
-    a.process();
+//    AnsjProcess a = new AnsjProcess();
+//    a.process();
+
 
 }
 }

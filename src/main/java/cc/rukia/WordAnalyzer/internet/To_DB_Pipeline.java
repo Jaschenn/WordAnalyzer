@@ -15,7 +15,7 @@ public class To_DB_Pipeline implements Pipeline<AbstractArticle> {
         * 暂时写到的文件中，分词的时候只需要读取文件的内容就可以，减少数据库中数据的冗余量。
         * 采取xml格式的？还是采取txt？ 暂时txt
         * */
-        File resultFile = new File("result.txt");
+        File resultFile = new File("result1.txt");
         if (!resultFile.exists()) {
             try {
                 resultFile.createNewFile();
@@ -26,7 +26,7 @@ public class To_DB_Pipeline implements Pipeline<AbstractArticle> {
 
         FileWriter fileWriter = null;
         try {
-            fileWriter = new FileWriter("result.txt", true);
+            fileWriter = new FileWriter("result1.txt", true);
         } catch (IOException e) {
             System.out.println("IOException");
         }

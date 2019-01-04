@@ -1,4 +1,6 @@
+import cc.rukia.WordAnalyzer.ansj.Word;
 import cc.rukia.WordAnalyzer.util.ToWordUtil;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import word.api.interfaces.IDocument;
 import word.w2004.Document2004;
@@ -8,7 +10,9 @@ import word.w2004.elements.Paragraph;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class Java2WordTest {
     @Test
@@ -40,4 +44,21 @@ public class Java2WordTest {
         ToWordUtil.addPara("这是一个新的段落");
         ToWordUtil.flush();
     }
+    @Test
+    public void txtToWord() throws IOException {
+        List<String> lines = FileUtils.readLines(new File("result1.txt"),"utf-8");
+        ToWordUtil.setFile("区块链.doc");
+        for (String s:lines
+             ) {
+            System.out.println(s);
+            if(s.contains("[")){
+                ToWordUtil.addPara(s.replaceAll("\\[","").replaceAll("\\]","").replaceAll("&","").trim());
+            }else {
+                ToWordUtil.addHeading(s.replaceAll("\\[","").replaceAll("\\]","").replaceAll("&","").trim(),2);
+            }
+        }
+        ToWordUtil.flush();
+
+     }
+
 }
