@@ -3,6 +3,7 @@ package cc.rukia.WordAnalyzer.internet;
 import cc.rukia.WordAnalyzer.util.RegrexUtil;
 import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,36 +16,16 @@ public class To_DB_Pipeline implements Pipeline<AbstractArticle> {
         * 暂时写到的文件中，分词的时候只需要读取文件的内容就可以，减少数据库中数据的冗余量。
         * 采取xml格式的？还是采取txt？ 暂时txt
         * */
-        File resultFile = new File("result1.txt");
-        if (!resultFile.exists()) {
-            try {
-                resultFile.createNewFile();
-            } catch (IOException e) {
-                System.out.println("create result file failed: " + e);
-            }
-        }
-
-        FileWriter fileWriter = null;
-        try {
-            fileWriter = new FileWriter("result1.txt", true);
-        } catch (IOException e) {
-            System.out.println("IOException");
-        }
+        File file = new File("result.txt");
 
         try {
-            fileWriter.write(abstractArticle.getTitle());
-            fileWriter.write("\r\n");
-            fileWriter.write((abstractArticle.getContent()).toString());
-            fileWriter.write("\r\n");
-            fileWriter.flush();
+            FileUtils.writeStringToFile(file,abstractArticle.getTitle()+"\n","utf-8",true);
+
+            FileUtils.writeLines(file,abstractArticle.getContent(),"\n",true);
+
+            FileUtils.writeStringToFile(file,"========================================================================================================\n",true);
         } catch (IOException e) {
-            System.out.println("fileWriter.write failed: " + e);
-        } finally {
-            try {
-                fileWriter.close();
-            } catch (IOException e) {
-                System.out.println("fileWriter.close failed");
-            }
+            e.printStackTrace();
         }
     }
 }

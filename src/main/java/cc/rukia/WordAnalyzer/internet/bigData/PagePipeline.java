@@ -5,7 +5,7 @@ import com.geccocrawler.gecco.pipeline.Pipeline;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.scheduler.SchedulerContext;
 
-@PipelineName(value="PagePipeline")
+@PipelineName(value="bigdataPagePipeline")
 public class PagePipeline implements Pipeline<BigDataIndex>{
 
 	//添加每个详细信息

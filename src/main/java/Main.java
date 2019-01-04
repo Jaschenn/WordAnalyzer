@@ -79,16 +79,14 @@ public static void main(String[] args) throws Exception{
 //            .debug(true)
 //            .run();
 //
-//    GeccoEngine.create()
-//            .classpath("cc.rukia.WordAnalyzer.internet")
-//            .start(cbdioUrl)
-//            .thread(1)
-//            .interval(500)
-//            .loop(false)
-//            .mobile(false)
-//            .start();
-//    AnsjProcess a = new AnsjProcess();
-//    a.process();
+    GeccoEngine.create()
+            .classpath("cc.rukia.WordAnalyzer.internet")
+            .start(cbdioUrl)
+            .thread(1)
+            .interval(500)
+            .loop(false)
+            .mobile(false)
+            .start();
 
 
 }

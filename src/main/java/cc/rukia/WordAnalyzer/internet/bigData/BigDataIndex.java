@@ -11,7 +11,7 @@ import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
 
 //li.am-g:nth-child(5) > div:nth-child(2) > p:nth-child(1) > a:nth-child(1)
-@Gecco(matchUrl="http://www.cbdio.com/{index}.html", pipelines="PagePipeline")
+@Gecco(matchUrl="http://www.cbdio.com/{index}.html", pipelines="bigdataPagePipeline")
 public class BigDataIndex implements HtmlBean{
 
 	/**

@@ -9,7 +9,7 @@ import com.geccocrawler.gecco.annotation.Request;
 import com.geccocrawler.gecco.annotation.Text;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
-@Gecco(matchUrl="http://it.people.com.cn/{index}.html", pipelines="PagePipeline")
+@Gecco(matchUrl="http://it.people.com.cn/{index}.html", pipelines="peoplePagePipeline")
 public class PeopleIndex implements HtmlBean{
 
 	/**
