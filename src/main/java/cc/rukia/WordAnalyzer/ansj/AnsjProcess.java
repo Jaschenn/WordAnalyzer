@@ -23,7 +23,7 @@ public class AnsjProcess {
 //        SchedulerContext.into(httpRequest.subRequest("https://baike.baidu.com/search/word?word="+top1));KeyWordComputer keyWordComputer = new KeyWordComputer(6);
 //        Collection<Keyword> keywords = keyWordComputer.computeArticleTfidf(productDetail.getTitle(),productDetail.getContent());
 //        System.out.println(keywords);
-        File file = new File("result.txt");
+        File file = new File("0108result.txt");
         List<String> lines = new ArrayList<String>();
         try {
             lines = FileUtils.readLines(file,"UTF-8");

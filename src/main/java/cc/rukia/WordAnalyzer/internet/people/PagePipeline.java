@@ -14,7 +14,6 @@ import com.geccocrawler.gecco.scheduler.SchedulerContext;
 public class PagePipeline implements Pipeline<PeopleIndex>{
 
 	public void process(PeopleIndex peopleIndex) {
-		// TODO Auto-generated method stub
 	
 		//获取到网页的标题
 		for(int i=0;i<peopleIndex.getIdList().size();i++) {

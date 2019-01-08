@@ -19,7 +19,7 @@ public class MukoTest {
         final FrequencyAnalyzer frequencyAnalyzer = new FrequencyAnalyzer();
         frequencyAnalyzer.setWordFrequenciesToReturn(500);
         frequencyAnalyzer.setMinWordLength(4);
-        final List<WordFrequency> wordFrequencies = frequencyAnalyzer.load("result.txt");
+        final List<WordFrequency> wordFrequencies = frequencyAnalyzer.load("0108result.txt");
         final Dimension dimension = new Dimension(600, 600);
         final WordCloud wordCloud = new WordCloud(dimension, CollisionMode.PIXEL_PERFECT);
         wordCloud.setPadding(2);
@@ -37,7 +37,7 @@ public class MukoTest {
         frequencyAnalyzer.setMinWordLength(2);
         frequencyAnalyzer.setWordTokenizer(new ChineseWordTokenizer());
 
-        final List<WordFrequency> wordFrequencies = frequencyAnalyzer.load("result.txt");
+        final List<WordFrequency> wordFrequencies = frequencyAnalyzer.load("0108result.txt");
         final Dimension dimension = new Dimension(600, 600);
         final WordCloud wordCloud = new WordCloud(dimension, CollisionMode.PIXEL_PERFECT);
         wordCloud.setPadding(2);

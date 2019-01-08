@@ -18,12 +18,15 @@ public class To_DB_Pipeline implements Pipeline<AbstractArticle> {
         * */
         File file = new File("result.txt");
 
+        /**
+         * 文档格式：@[标题]
+         *          内容
+         *
+         * */
         try {
-            FileUtils.writeStringToFile(file,abstractArticle.getTitle()+"\n","utf-8",true);
-
-            FileUtils.writeLines(file,abstractArticle.getContent(),"\n",true);
-
-            FileUtils.writeStringToFile(file,"========================================================================================================\n",true);
+            FileUtils.writeStringToFile(file,"@["+abstractArticle.getTitle()+"]"+"\n","utf-8",true);
+            FileUtils.writeLines(file,abstractArticle.getContent(),true);
+            FileUtils.writeStringToFile(file,"\n",true);
         } catch (IOException e) {
             e.printStackTrace();
         }
