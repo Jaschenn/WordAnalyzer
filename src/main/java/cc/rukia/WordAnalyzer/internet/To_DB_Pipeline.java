@@ -16,7 +16,7 @@ public class To_DB_Pipeline implements Pipeline<AbstractArticle> {
         * 暂时写到的文件中，分词的时候只需要读取文件的内容就可以，减少数据库中数据的冗余量。
         * 采取xml格式的？还是采取txt？ 暂时txt
         * */
-        File file = new File("result.txt");
+        File file = new File("0110result.txt");
 
         /**
          * 文档格式：@[标题]

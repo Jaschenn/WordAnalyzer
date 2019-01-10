@@ -3,8 +3,10 @@ package cc.rukia.WordAnalyzer.hanPL;
 import cc.rukia.WordAnalyzer.internet.AbstractArticle;
 import cc.rukia.WordAnalyzer.util.GetArticle;
 import cc.rukia.WordAnalyzer.util.RedisUtil;
+import cc.rukia.WordAnalyzer.util.explUtil.ExplainUtil;
 import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.mining.cluster.ClusterAnalyzer;
+import com.hankcs.hanlp.mining.word.WordInfo;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
@@ -26,13 +28,12 @@ public class ClusterMachine {
         ClusterAnalyzer analyzer  = new ClusterAnalyzer();
         AbstractArticle article = new HanArticle();
         List lines = null;
-        Jedis jedis = RedisUtil.getJedis();
         try {
-            lines = FileUtils.readLines(new File("result.txt"),"utf-8");
+            lines = FileUtils.readLines(new File("0110result.txt"),"utf-8");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        List<AbstractArticle> articles = GetArticle.getArticles("result.txt",'@');
+        List<AbstractArticle> articles = GetArticle.getArticles("0110result.txt",'@');
         HashMap<String,List> articleMap = new HashMap<>();
         for (AbstractArticle a:articles
              ) {
@@ -45,8 +46,13 @@ public class ClusterMachine {
             System.out.println("###类别###");
             for (String a:set
                  ) {
-                List list1 = HanLP.extractWords(a+articleMap.get(a).toString(),3,true);
-                //  ToDo 增加对数据库的写入
+                List<WordInfo> list1 = HanLP.extractWords(a+articleMap.get(a).toString(),5,true);
+                System.out.println(list1);
+                for (WordInfo w:list1
+                     ) {
+                    ExplainUtil.getExplain(w.toString());
+                }
+
             }
         }
     }

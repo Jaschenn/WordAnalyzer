@@ -8,15 +8,14 @@ import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.spider.HtmlBean;
 
 import java.util.List;
-@Gecco(matchUrl = "https://baike.baidu.com/item/{title}",pipelines = "wordExplaination")
+@Gecco(matchUrl = "https://baike.baidu.com/item/{title}/{number}",pipelines = "wordExplaination")
 public class WordExplaination extends AbstractArticle implements HtmlBean {
     private static final long serialVersionUID = 111213765435676532L;
     @Request
     private HttpRequest httpRequest;
     @RequestParameter
     private String title;
-
-    @HtmlField(cssPath = "body > div.body-wrapper > div.content-wrapper > div > div.main-content > div.lemma-summary > div")
+    @HtmlField(cssPath = "div.lemma-summary div ")
     private List<String> content;
     public String getTitle() {
         return title;

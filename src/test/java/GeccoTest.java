@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GeccoTest {
 
-    public void geccoTest() throws  Exception{
+    public void geccoAjaxTest() throws  Exception{
 
 
     }
