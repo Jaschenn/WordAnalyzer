@@ -54,9 +54,6 @@
         </dependency>
     </dependencies>
     <build>
-        <sourceDirectory>
-            /src/main/java
-        </sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
