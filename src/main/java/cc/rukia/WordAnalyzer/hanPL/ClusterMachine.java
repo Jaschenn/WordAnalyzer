@@ -48,13 +48,13 @@ public class ClusterMachine {
             for (String a:set
                  ) {//HanLp分词，参数分别为 文章，大小，是否只要新词
                 System.out.println(a);
-//                List<WordInfo> list1 = HanLP.extractWords(a+articleMap.get(a).toString(),5,true);
-//                System.out.println(list1);
-//                for (WordInfo w:list1
-//                     ) {
-//                    ExplainUtil.getExplain(w.toString());
-//                }
-//
+                List<WordInfo> list1 = HanLP.extractWords(a+articleMap.get(a).toString(),5,true);
+                System.out.println(list1);
+                for (WordInfo w:list1
+                     ) {
+                    ExplainUtil.getExplain(w.toString());
+                }
+
             }
         }
     }
