@@ -33,7 +33,10 @@ public class HanLpTest {
 //        System.out.println("[==感知机分词==]"+analyzer.analyze(content));
 //        System.out.println("【ansj NLP分词】"+NlpAnalysis.parse(content));
         System.out.println(HanLP.extractWords(content,2,true));
-
+    /*
+    * 结论：
+    * 感知机分词对于语料的要求比较高，对于纯技术性的文章而言，分词结果比较理想
+    * */
     }
     @Test
     public void trainTest() throws IOException {
