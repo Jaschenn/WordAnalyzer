@@ -40,19 +40,21 @@ public class ClusterMachine {
             analyzer.addDocument(a.getTitle(),a.getTitle()+a.getContent());//暂时名称是id
             articleMap.put(a.getTitle(),a.getContent());
         }
-        List<Set<String>> list = analyzer.repeatedBisection(3);
+        List<Set<String>> list = analyzer.repeatedBisection(2.0);//指定最小阀值
         for (Set<String> set:list
         ) {
             System.out.println("###类别###");
+            System.out.println("主题词------->"+HanLP.extractKeyword(set.toString(),1));
             for (String a:set
-                 ) {
-                List<WordInfo> list1 = HanLP.extractWords(a+articleMap.get(a).toString(),5,true);
-                System.out.println(list1);
-                for (WordInfo w:list1
-                     ) {
-                    ExplainUtil.getExplain(w.toString());
-                }
-
+                 ) {//HanLp分词，参数分别为 文章，大小，是否只要新词
+                System.out.println(a);
+//                List<WordInfo> list1 = HanLP.extractWords(a+articleMap.get(a).toString(),5,true);
+//                System.out.println(list1);
+//                for (WordInfo w:list1
+//                     ) {
+//                    ExplainUtil.getExplain(w.toString());
+//                }
+//
             }
         }
     }

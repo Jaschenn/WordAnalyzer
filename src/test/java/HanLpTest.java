@@ -25,14 +25,14 @@ import java.util.*;
 public class HanLpTest {
     @Test
     public void HanLPTest() throws IOException {
-        String content = "据国外媒体报道，Facebook 的 20 亿用户中，绝大多数人不清楚 Facebook 有多少服务在多大程度上依靠人工智能来运作。更没多少人知道，在庞大的 Facebook 帝国，机器学习占有多大的分量。今天，我们翻译了 Hazelwood 等人撰写的文章，从数据中心基础设施的角度，来窥视在 Facebook 内部的机器学习应用的情况。希望这篇文章能够起到管中窥豹、抛砖引玉的作用。";
+        String content = "";
         PerceptronLexicalAnalyzer analyzer = new PerceptronLexicalAnalyzer("data/model/perceptron/pku199801/cws.bin",
                 "data/model/perceptron/pku199801/pos.bin",
                 "data/model/perceptron/pku199801/ner.bin");
 //        System.out.println("[==普通分词==]"+HanLP.segment(content));
 //        System.out.println("[==感知机分词==]"+analyzer.analyze(content));
 //        System.out.println("【ansj NLP分词】"+NlpAnalysis.parse(content));
-        System.out.println(HanLP.extractWords(content,3,true));
+        System.out.println(HanLP.extractWords(content,2,true));
 
     }
     @Test
